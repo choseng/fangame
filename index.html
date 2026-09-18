@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Hitchhiker</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+
+  <div id="game">
+
+    <h1>HITCHHIKER</h1>
+
+
+    <!-- ==============================
+         상태창
+    ============================== -->
+
+    <div id="status">
+
+      <div id="distanceDisplay">
+        남은 거리:
+        <span id="distance">305</span>km
+      </div>
+
+      <span>
+        속도
+        <b id="speed">0</b> km/h
+      </span>
+
+      <span>
+        승객
+        <b id="passenger">없음</b>
+      </span>
+
+      <span>
+        현재
+        <b id="npcNumber">-</b>
+      </span>
+
+    </div>
+
+    <!--오디오-->
+     <audio id="bgm" src="audio/89951__loffy__car_inside_driving_fast_diesel_engine_tire_sound.wav" loop preload="auto"></audio>
+
+     <audio id="bellSound" src="audio/bell.mp3" preload="auto"></audio>
+     <audio id="thunder" src="audio/thunder.mp3" preload="auto"></audio>
+
+     <audio id="boom" src="audio/107792__lord-razu__bombeplosion.wav" preload="auto"></audio>
+
+     <audio id ="gun" src="audio/9971933B5D2A215A03.mp3" preload="auto"></audio>
+
+     <audio id = "start" src="audio/start.mp3" preload="auto"></audio>
+
+     <audio id="door" src="audio/door.mp3" preload ="auto"></audio>
+    <!-- ==============================
+         게임 화면
+    ============================== -->
+
+    <div id="screen">
+
+
+      <!-- 자동차 배경 -->
+
+      <img
+        id="backgroundImage"
+        src="images/background.png"
+        alt="자동차 내부"
+      >
+
+      <!-- 번개 번쩍 -->
+      <div id="lightningFlash"></div>
+
+      <!--이상현상-->
+      <img 
+        id="liquid"
+        src="images/liquid.png"
+        alt="검은 액체"
+      >
+      <img
+        id="moon"
+        src="images/moon.png"
+        alt="달"
+      >
+      <img
+        id="hand"
+        src="images/hand.png"
+        alt="손"
+      >
+      <img 
+        id="web"
+        src="images/web.png"
+        alt="거미줄"
+      >
+      <img
+        id="sakura"
+        src="images/sakura.png"
+        alt="벚꽃"  
+      >
+
+      <img
+        id="snow"
+        src="images/snow.png"
+        alt="눈"
+      >
+
+      <!--컷신 (개인컷, 엔딩컷 다 포함)-->
+      //마지막 삼주가 떠나기 전 자기 차키 아이기스에게 주는 거
+      <img
+        id="key"
+        src="images/key.png"
+        alt="열쇠"
+      >
+
+
+      <!-- 운전자 -->
+
+      <img
+        id="driverImage"
+        src="images/driver.png"
+        alt="운전자"
+      >
+
+
+      <!-- 히치하이커 1 -->
+
+      <img
+        id="npc1Image"
+        src="images/npc1.png"
+        alt="히치하이커 1"
+      >
+      <!-- 히치하이커 1-2 -->
+
+      <img
+        id="npc1Image2"
+        src="images/npc1-2.png"
+        alt="히치하이커 1 변화"
+      >
+
+      <!-- 히치하이커 2 -->
+
+      <img
+        id="npc2Image"
+        src="images/npc2.png"
+        alt="히치하이커 2"
+      >
+
+
+      <!-- 히치하이커 3 -->
+
+      <img
+        id="npc3Image"
+        src="images/npc3.png"
+        alt="히치하이커 3"
+      >
+
+
+      <!-- 히치하이커 4 -->
+
+      <img
+        id="npc4Image"
+        src="images/npc4.png"
+        alt="히치하이커 4"
+      >
+      <!-- 히치하이커 5 -->
+
+      <img
+        id="npc5Image"
+        src="images/npc5.png"
+        alt="히치하이커 5"
+      >
+
+      <!-- 화면 위 메시지 -->
+
+      <div id="gameMessage">
+
+        <div id="eventTitle">
+          HITCHHIKER
+        </div>
+
+        <div id="message">
+          운전을 시작하세요.
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- ==============================
+         대화창
+    ============================== -->
+
+    <div id="dialogue">
+
+      <div id="speaker"></div>
+
+      <div id="dialogueText">
+        목적지까지 가야 한다.
+      </div>
+
+    </div>
+
+
+    <!-- ==============================
+         선택지
+    ============================== -->
+
+    <div id="choices"></div>
+
+
+    <!-- ==============================
+         조작 버튼
+    ============================== -->
+
+    <div id="controls">
+
+      <button id="accelerator">
+        가속
+      </button>
+
+      <button id="brake">
+        브레이크
+      </button>
+
+      <button id="wiper">
+        와이퍼
+      </button>
+
+      <button id="radio">
+        라디오
+      </button>
+
+      <button id="saveButton">
+        저장
+      </button>
+
+      <button id="loadButton">
+        불러오기
+      </button>
+    </div>
+
+
+    <!-- ==============================
+         시작 버튼
+    ============================== -->
+
+    <button id="startButton">
+      운전 시작
+    </button>
+
+  </div>
+
+
+  <script src="game.js"></script>
+
+</body>
+
+</html>

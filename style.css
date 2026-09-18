@@ -1,0 +1,401 @@
+* {
+  box-sizing: border-box;
+}
+
+
+body {
+  margin: 0;
+
+  background: #111;
+
+  color: #eee;
+
+  font-family: Arial, sans-serif;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  min-height: 100vh;
+}
+
+
+/* ========================================
+   게임 전체
+======================================== */
+
+#game {
+  width: 900px;
+
+  max-width: 94vw;
+
+  text-align: center;
+}
+
+
+/* ========================================
+   제목
+======================================== */
+
+h1 {
+  letter-spacing: 8px;
+
+  margin-bottom: 20px;
+}
+
+/*번개 번쩍*/
+#lightningFlash {
+  position: absolute;
+  inset: 0;
+  background: white;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 10;
+}
+
+@keyframes lightningFlash {
+  0%   { opacity: 0; }
+  8%   { opacity: 1; }
+  15%  { opacity: 0.3; }
+  25%  { opacity: 1; }
+  45%  { opacity: 0.2; }
+  100% { opacity: 0; }
+}
+
+.lightning-active {
+  animation: lightningFlash 0.6s ease-out;
+}
+
+/* ========================================
+   상태창
+======================================== */
+
+#status {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  gap: 10px;
+
+  background: #222;
+
+  padding: 12px 20px;
+
+  margin-bottom: 12px;
+}
+
+
+/* ========================================
+   게임 화면
+======================================== */
+
+#screen {
+
+  width: 100%;
+
+  aspect-ratio: 16 / 9;
+
+  background: #000;
+
+  border: 2px solid #444;
+
+  position: relative;
+
+  overflow: hidden;
+}
+
+/*흑백 필터*/
+#screen.bw-filter {
+  filter: grayscale(100%) contrast(1.1);
+  transition: filter 1.2s ease;
+}
+
+
+
+/* ========================================
+   이미지 레이어
+======================================== */
+
+#screen img {
+
+  position: absolute;
+
+  top: 0;
+
+  left: 0;
+
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: fill;
+
+  pointer-events: none;
+
+  user-select: none;
+}
+
+
+/* ========================================
+   배경
+======================================== */
+
+#backgroundImage {
+
+  z-index: 1;
+}
+
+
+/* ========================================
+   운전자
+======================================== */
+
+#driverImage {
+
+  z-index: 2;
+}
+
+
+/* ========================================
+   NPC
+======================================== */
+
+#npc1Image,
+#npc2Image,
+#npc3Image,
+#npc4Image,
+#npc5Image,
+#npc6Image {
+
+  z-index: 3;
+
+  display: none;
+}
+
+#npc1Image2{
+  z-index:4;
+  display: none;
+}
+
+/*
+  나중에 여러 NPC가 동시에 보일 수 있기 때문에
+  각각 독립적인 이미지 레이어를 사용한다.
+*/
+
+/*이상현상 및 컷신*/
+#liquid,
+#moon,
+#hand,
+#key,
+#web,
+#snow,
+#sakura{
+  z-index:5;
+  display: none;
+}
+
+
+/* ========================================
+   게임 메시지
+======================================== */
+
+#gameMessage {
+
+  position: absolute;
+
+  left: 0;
+
+  right: 0;
+
+  bottom: 0;
+
+  padding: 15px 20px;
+
+  background: rgba(0, 0, 0, 0.65);
+
+  z-index: 10;
+
+  pointer-events: none;
+}
+
+
+/* ========================================
+   이벤트 제목
+======================================== */
+
+#eventTitle {
+
+  font-size: 24px;
+
+  margin-bottom: 7px;
+}
+
+
+/* ========================================
+   메시지
+======================================== */
+
+#message {
+
+  font-size: 17px;
+
+  line-height: 1.5;
+}
+
+
+/* ========================================
+   대화창
+======================================== */
+
+#dialogue {
+
+  min-height: 100px;
+
+  background: #222;
+
+  border: 1px solid #444;
+
+  padding: 15px;
+
+  margin-top: 10px;
+
+  text-align: left;
+}
+
+
+/* ========================================
+   화자
+======================================== */
+
+#speaker {
+
+  font-weight: bold;
+
+  margin-bottom: 8px;
+}
+
+
+/* ========================================
+   대화
+======================================== */
+
+#dialogueText {
+
+  line-height: 1.6;
+}
+
+
+/* ========================================
+   선택지
+======================================== */
+
+#choices {
+
+  min-height: 60px;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  gap: 10px;
+
+  margin-top: 10px;
+}
+
+
+/* ========================================
+   버튼
+======================================== */
+
+button {
+
+  border: none;
+
+  background: #333;
+
+  color: white;
+
+  padding: 15px 25px;
+
+  font-size: 16px;
+
+  cursor: pointer;
+}
+
+
+button:hover {
+
+  background: #555;
+}
+
+
+/* ========================================
+   조작 버튼
+======================================== */
+
+#controls {
+
+  display: flex;
+
+  gap: 10px;
+
+  margin-top: 10px;
+}
+
+
+#controls button {
+
+  flex: 1;
+}
+
+
+/* ========================================
+   시작 버튼
+======================================== */
+
+#startButton {
+
+  width: 100%;
+
+  margin-top: 15px;
+
+  background: #555;
+}
+
+
+#startButton:hover {
+
+  background: #777;
+}
+
+
+/* ========================================
+   선택지 버튼
+======================================== */
+
+#choices button {
+
+  min-width: 140px;
+}
+
+
+/* ========================================
+   색상
+======================================== */
+
+.danger {
+
+  color: #ff5555;
+}
+
+
+.success {
+
+  color: #66ff99;
+}
