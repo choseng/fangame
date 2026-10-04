@@ -26,7 +26,7 @@
 
       <div id="distanceDisplay">
         남은 거리:
-        <span id="distance">305</span>km
+        <span id="distance">???</span>km
       </div>
 
       <span>
@@ -34,15 +34,7 @@
         <b id="speed">0</b> km/h
       </span>
 
-      <span>
-        승객
-        <b id="passenger">없음</b>
-      </span>
-
-      <span>
-        현재
-        <b id="npcNumber">-</b>
-      </span>
+      
 
     </div>
 
@@ -59,11 +51,15 @@
      <audio id = "start" src="audio/start.mp3" preload="auto"></audio>
 
      <audio id="door" src="audio/door.mp3" preload ="auto"></audio>
+
+     <audio id="rad" src="audio/radio.mp3" preload="auto"></audio>
     <!-- ==============================
          게임 화면
     ============================== -->
 
     <div id="screen">
+
+      <div id="speedLines"></div>
 
 
       <!-- 자동차 배경 -->
@@ -109,6 +105,9 @@
         src="images/snow.png"
         alt="눈"
       >
+
+      <div id="blackout"></div>
+
 
       <!--컷신 (개인컷, 엔딩컷 다 포함)-->
       //마지막 삼주가 떠나기 전 자기 차키 아이기스에게 주는 거
@@ -160,6 +159,11 @@
         alt="히치하이커 3"
       >
 
+      <!-- 히치하이커 3 변화-->
+       <img 
+        id="npc3Image2"
+        src="images/npc3-1.png"
+        alt="히치하이커 3 변화">
 
       <!-- 히치하이커 4 -->
 
