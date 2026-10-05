@@ -80,6 +80,21 @@ h1 {
 }
 #blackout.on { opacity: 1; }
 
+/*깜깜*/
+#blackoutOverlay {
+  position: absolute;
+  inset: 0;
+  background: #000;
+  opacity: 0;
+  z-index: 20;
+  pointer-events: none;
+  transition: opacity 1s ease;
+}
+
+#blackoutOverlay.blackout-active {
+  opacity: 1;
+}
+
 
 /* ========================================
    상태창
@@ -239,6 +254,15 @@ h1 {
   display: none;
 }
 
+/*엔딩 컷씬*/
+#end_b,
+#end_r,
+#end_p,
+#end_a,
+#end_h{
+  z-index:9;
+  display:none;
+}
 
 /* ========================================
    게임 메시지
