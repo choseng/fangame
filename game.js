@@ -1461,7 +1461,7 @@ const npcs = [
 
       {
         type: "wait",
-        move: 20,
+        move: 15,
         text: "..."
       },
 
