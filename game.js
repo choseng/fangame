@@ -2502,7 +2502,7 @@ const npcs = [
   {
     id: "npc4",
     name: "목도리를 두른 소년",
-    triggerDistance: 135,
+    triggerDistance: 150,
     destinationDistance: 0,
 
     events: [
