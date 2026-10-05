@@ -7,6 +7,8 @@ let gameState = "title"; // "title" | "driving" | "event" | "exitEvent" | "endin
 let distance = 466;
 let speed = 0;
 
+let pdistance = 0;
+
 // 정지 이벤트 진입 전 속도를 저장해뒀다가 복구할 때 사용
 let drivingSpeedBeforeEvents = 0;
 
@@ -2188,6 +2190,8 @@ const npcs = [
         type: "anomaly",
         action: async () => {
 
+          pdistance = distance;
+
           const thisNpcIndex = activeNPCIndex;
 
           screenElement.classList.add("bw-filter");
@@ -2208,6 +2212,7 @@ const npcs = [
           await waitForNext("아마미야 렌", "그러니 여기만 벗어나면 괜찮아질 거야.");
           await waitForNext("아마미야 렌", "다만… 점점 범위가 커지고 있으니, 빠른 속도가 중요하겠네.");
           
+
           speed = 20;
           updateStatus();
           // 가속 페달로 일정 속도 이상이 되어야 해결
@@ -2351,6 +2356,9 @@ const npcs = [
           await waitForNext(" ", "…렌을 바라보다가 다시 고개를 돌렸다.");
           await waitForNext(" ", "어쨌든, 계속 가야겠네.");
           await waitForNext(" ", "이상현상이 뒤따라오진 않더라도, 이젠 앞으로 나아갈 시간이다.");
+
+
+          distance = pdistance;
 
           exitAnomalyEvent();
           nextAfterAnomaly(thisNpcIndex);
